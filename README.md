@@ -19,7 +19,7 @@ A simple subdomain reconnaissance and takeover fingerprinting tool written in Py
 - Python 3
 - subfinder
 - httpx
-
+Make sure subfinder and httpx are installed and accessible from your PATH.
 ---
 
 ## Install Python Requirements
