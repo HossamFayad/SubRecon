@@ -2,6 +2,8 @@ import subprocess
 import dns.resolver
 import argparse
 import os
+import shutil
+import sys
 
 
 interesting = ["[404]", "[403]", "[500]", "[503]", "[525]"]
@@ -22,12 +24,25 @@ providers = [
 ]
 
 
+def check_tools():
+
+    if not shutil.which("subfinder"):
+
+        print("[!] subfinder not found")
+        sys.exit()
+
+    if not shutil.which("httpx"):
+
+        print("[!] httpx not found")
+        sys.exit()
+
+
 def run_subfinder(domain, filename):
 
     print("[*] Running subfinder...")
 
     cmd = (
-        f"~/go/bin/subfinder "
+        f"subfinder "
         f"-d {domain} "
         f"-silent "
         f"-o {filename}"
@@ -41,7 +56,7 @@ def run_httpx(filename):
     print("[*] Running httpx...")
 
     cmd = (
-        f"~/go/bin/httpx "
+        f"httpx "
         f"-l {filename} "
         f"-sc "
         f"-title "
@@ -69,9 +84,11 @@ def check_cname(subdomain, domain, resolver):
             print("[CNAME]", cname)
 
             if domain.lower() in cname.lower():
+
                 print("[Internal CNAME]")
 
             else:
+
                 print("[External Provider]")
 
             for provider in providers:
@@ -153,6 +170,8 @@ def main():
     resolver.timeout = 2
     resolver.lifetime = 2
 
+    check_tools()
+
     run_subfinder(domain, filename)
 
     lines = run_httpx(filename)
@@ -167,4 +186,3 @@ def main():
 
 
 main()
-            
