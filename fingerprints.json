@@ -1,0 +1,327 @@
+[
+  {
+    "service": "Heroku",
+    "cname": [
+      "herokuapp.com",
+      "herokudns.com"
+    ],
+    "fingerprint": "No such app",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "GitHub Pages",
+    "cname": [
+      "github.io"
+    ],
+    "fingerprint": "There isn't a GitHub Pages site here",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Fastly",
+    "cname": [
+      "fastly.net"
+    ],
+    "fingerprint": "Fastly error: unknown domain",
+    "status": "Not vulnerable"
+  },
+
+  {
+    "service": "Vercel",
+    "cname": [
+      "vercel.app"
+    ],
+    "fingerprint": "DEPLOYMENT_NOT_FOUND",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Netlify",
+    "cname": [
+      "netlify.app"
+    ],
+    "fingerprint": "Not Found - Request ID",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Readme.io",
+    "cname": [
+      "readme.io"
+    ],
+    "fingerprint": "The creators of this project are still working on making everything perfect!",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Ngrok",
+    "cname": [
+      "ngrok.io"
+    ],
+    "fingerprint": "Tunnel",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "WordPress",
+    "cname": [
+      "wordpress.com"
+    ],
+    "fingerprint": "Do you want to register",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Pantheon",
+    "cname": [
+      "pantheonsite.io"
+    ],
+    "fingerprint": "404 error unknown site!",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Shopify",
+    "cname": [
+      "myshopify.com"
+    ],
+    "fingerprint": "Sorry, this shop is currently unavailable",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Tumblr",
+    "cname": [
+      "tumblr.com"
+    ],
+    "fingerprint": "Whatever you were looking for doesn't currently exist",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Help Scout",
+    "cname": [
+      "helpscoutdocs.com"
+    ],
+    "fingerprint": "No settings were found for this company",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Zendesk",
+    "cname": [
+      "zendesk.com"
+    ],
+    "fingerprint": "Help Center Closed",
+    "status": "Not vulnerable"
+  },
+
+  {
+    "service": "Surge",
+    "cname": [
+      "surge.sh"
+    ],
+    "fingerprint": "project not found",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Cargo Collective",
+    "cname": [
+      "cargocollective.com"
+    ],
+    "fingerprint": "404 Not Found",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Bitbucket",
+    "cname": [
+      "bitbucket.io"
+    ],
+    "fingerprint": "Repository not found",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Ghost",
+    "cname": [
+      "ghost.io"
+    ],
+    "fingerprint": "Site unavailable",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Fly.io",
+    "cname": [
+      "fly.dev"
+    ],
+    "fingerprint": "404 Not Found",
+    "status": "Not vulnerable"
+  },
+
+  {
+    "service": "Intercom",
+    "cname": [
+      "intercom.help"
+    ],
+    "fingerprint": "Uh oh. That page doesn't exist",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Kinsta",
+    "cname": [
+      "kinsta.cloud"
+    ],
+    "fingerprint": "No Site For Domain",
+    "status": "Not vulnerable"
+  },
+
+  {
+    "service": "LaunchRock",
+    "cname": [
+      "launchrock.com"
+    ],
+    "fingerprint": "HTTP_STATUS=500",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Mashery",
+    "cname": [
+      "mashery.com"
+    ],
+    "fingerprint": "Unrecognized domain",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Pingdom",
+    "cname": [
+      "pingdom.com"
+    ],
+    "fingerprint": "Sorry, couldn't find the status page",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "ReadTheDocs",
+    "cname": [
+      "readthedocs.io"
+    ],
+    "fingerprint": "The link you have followed or the URL that you entered does not exist",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Smartling",
+    "cname": [
+      "smartling.com"
+    ],
+    "fingerprint": "Domain is not configured",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Statuspage",
+    "cname": [
+      "statuspage.io"
+    ],
+    "fingerprint": "You are being redirected",
+    "status": "Not vulnerable"
+  },
+
+  {
+    "service": "Strikingly",
+    "cname": [
+      "s.strikinglydns.com"
+    ],
+    "fingerprint": "PAGE NOT FOUND",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "SurveySparrow",
+    "cname": [
+      "surveysparrow.com"
+    ],
+    "fingerprint": "Account not found",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Tilda",
+    "cname": [
+      "tilda.ws"
+    ],
+    "fingerprint": "Please renew your subscription",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Uberflip",
+    "cname": [
+      "uberflip.com"
+    ],
+    "fingerprint": "does not provide a hub",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "UptimeRobot",
+    "cname": [
+      "stats.uptimerobot.com"
+    ],
+    "fingerprint": "page not found",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Webflow",
+    "cname": [
+      "webflow.io"
+    ],
+    "fingerprint": "The page you are looking for doesn't exist",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "Wix",
+    "cname": [
+      "wixdns.net"
+    ],
+    "fingerprint": "Looks Like This Domain Isn't Connected To A Website Yet",
+    "status": "Edge case"
+  },
+
+  {
+    "service": "AWS S3",
+    "cname": [
+      "s3.amazonaws.com"
+    ],
+    "fingerprint": "The specified bucket does not exist",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Azure",
+    "cname": [
+      "azurewebsites.net",
+      "cloudapp.azure.com"
+    ],
+    "fingerprint": "NXDOMAIN",
+    "status": "Vulnerable"
+  },
+
+  {
+    "service": "Firebase",
+    "cname": [
+      "firebaseapp.com"
+    ],
+    "fingerprint": "404",
+    "status": "Not vulnerable"
+  }
+]
