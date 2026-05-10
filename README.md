@@ -2,38 +2,68 @@
 
 A simple subdomain reconnaissance and takeover fingerprinting tool written in Python.
 
+---
+
 ## Features
 
-- Subdomain enumeration using subfinder
-- HTTP probing using httpx
-- Status code filtering
-- Fingerprint detection
-- CNAME analysis
-- Provider detection
-- Internal / external CNAME classification
+* Subdomain enumeration using subfinder
+* HTTP probing using httpx
+* Status code filtering
+* Fingerprint detection
+* CNAME analysis
+* Provider detection
+* Internal / external CNAME classification
+* JSON-based fingerprint database
+* Detection of possible takeover patterns
+* Automated recon workflow
 
 ---
 
 ## Requirements
 
-- Python 3
-- subfinder
-- httpx
+* Python 3
+* subfinder
+* httpx
 
 Make sure subfinder and httpx are installed and accessible from your PATH.
+
 ---
 
 ## Install Python Requirements
 
 ```bash
 pip install -r requirements.txt
-Install subfinder
+```
+
+---
+
+## Install subfinder
+
+```bash
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-Install httpx
+```
+
+---
+
+## Install httpx
+
+```bash
 go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-Usage
+```
+
+---
+
+## Usage
+
+```bash
 python main.py -d example.com
-Example Output
+```
+
+---
+
+## Example Output
+
+```text
 [Interesting]
 https://invite.example.com [] [Fastly error: unknown domain]
 
@@ -41,25 +71,60 @@ https://invite.example.com [] [Fastly error: unknown domain]
 
 [External Provider]
 
-[Possible Provider] heroku
-Fingerprints
+[Service] Heroku
 
-Current fingerprints include:
+[Fingerprint Match]
 
-Fastly error
-No such app
-unknown domain
-GitHub Pages errors
-Providers
+[Status] Edge case
+```
 
-Current provider detection includes:
+---
 
-Heroku
-GitHub
-Vercel
-AWS
-Azure
-Disclaimer
+## Fingerprint Database
+
+SubRecon uses a JSON-based fingerprint database
+to detect possible takeover patterns and
+misconfigured services.
+
+---
+
+## Supported Services
+
+* Heroku
+* GitHub Pages
+* Vercel
+* Netlify
+* Fastly
+* AWS S3
+* Azure
+* Shopify
+* WordPress
+* Pantheon
+* ReadTheDocs
+* Surge
+* Wix
+* Ngrok
+* Help Scout
+* Tumblr
+* Intercom
+* وغيرها...
+
+---
+
+## Project Structure
+
+```text
+SubRecon/
+│
+├── main.py
+├── fingerprints.json
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Disclaimer
 
 This project is intended for educational and authorized security testing purposes only.
 
