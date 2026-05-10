@@ -4,24 +4,14 @@ import argparse
 import os
 import shutil
 import sys
+import json
 
 
-interesting = ["[404]", "[403]", "[500]", "[503]", "[525]"]
+def load_fingerprints():
 
-fingerprints = [
-    "Fastly error",
-    "No such app",
-    "unknown domain",
-    "There isn't a GitHub Pages site here"
-]
+    with open("fingerprints.json", "r") as file:
 
-providers = [
-    "heroku",
-    "github",
-    "vercel",
-    "amazonaws",
-    "azure"
-]
+        return json.load(file)
 
 
 def check_tools():
@@ -68,7 +58,13 @@ def run_httpx(filename):
     return result.splitlines()
 
 
-def check_cname(subdomain, domain, resolver):
+def check_cname(
+    subdomain,
+    line,
+    domain,
+    resolver,
+    fingerprints
+):
 
     try:
 
@@ -91,14 +87,32 @@ def check_cname(subdomain, domain, resolver):
 
                 print("[External Provider]")
 
-            for provider in providers:
+            for fp in fingerprints:
 
-                if provider in cname.lower():
+                if any(
+                    cname_item in cname.lower()
+                    for cname_item in fp["cname"]
+                ):
 
                     print(
-                        "[Possible Provider]",
-                        provider
+                        "[Service]",
+                        fp["service"]
                     )
+
+                    if (
+                        fp["fingerprint"]
+                        .lower()
+                        in line.lower()
+                    ):
+
+                        print(
+                            "[Fingerprint Match]"
+                        )
+
+                        print(
+                            "[Status]",
+                            fp["status"]
+                        )
 
     except dns.resolver.NoAnswer:
 
@@ -113,33 +127,39 @@ def check_cname(subdomain, domain, resolver):
         print(e)
 
 
-def analyze_results(lines, domain, resolver):
+def analyze_results(
+    lines,
+    domain,
+    resolver,
+    fingerprints
+):
 
     for line in lines:
 
-        if (
-            any(code in line for code in interesting)
-            or
-            any(
-                fp.lower() in line.lower()
-                for fp in fingerprints
-            )
-        ):
+        for fp in fingerprints:
 
-            print("\n[Interesting]")
-            print(line)
+            if (
+                fp["fingerprint"]
+                .lower()
+                in line.lower()
+            ):
 
-            subdomain = (
-                line.split(" ")[0]
-                .replace("https://", "")
-                .replace("http://", "")
-            )
+                print("\n[Interesting]")
+                print(line)
 
-            check_cname(
-                subdomain,
-                domain,
-                resolver
-            )
+                subdomain = (
+                    line.split(" ")[0]
+                    .replace("https://", "")
+                    .replace("http://", "")
+                )
+
+                check_cname(
+                    subdomain,
+                    line,
+                    domain,
+                    resolver,
+                    fingerprints
+                )
 
 
 def cleanup(filename):
@@ -165,6 +185,8 @@ def main():
 
     filename = f"{domain}_subs.txt"
 
+    fingerprints = load_fingerprints()
+
     resolver = dns.resolver.Resolver()
 
     resolver.timeout = 2
@@ -179,7 +201,8 @@ def main():
     analyze_results(
         lines,
         domain,
-        resolver
+        resolver,
+        fingerprints
     )
 
     cleanup(filename)
