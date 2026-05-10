@@ -107,7 +107,7 @@ misconfigured services.
 * Help Scout
 * Tumblr
 * Intercom
-* وغيرها...
+*...other
 
 ---
 
